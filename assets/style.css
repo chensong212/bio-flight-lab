@@ -199,6 +199,73 @@ button:focus-visible {
   color: var(--link);
 }
 
+/* News items（News 页：日期 + 照片 + 中文正文 + 英文一句） */
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 96px; /* 锦点跳转后不被 sticky 顶栏遮住 */
+}
+
+.news-item:last-child {
+  border-bottom: 0;
+}
+
+.news-photo {
+  flex: 0 0 320px;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  line-height: 0;
+}
+
+.news-photo img {
+  width: 320px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.news-photo:hover img {
+  transform: scale(1.03);
+}
+
+.news-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin-bottom: 0.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-title {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.news-body p {
+  margin-bottom: 0.6rem;
+  line-height: 1.8;
+}
+
+.news-body .en {
+  font-size: 0.88rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
 /* Post body（新闻/研究笔记正文排版）
    注意：* 复位把所有块级间距清零，故 .post-body 内每个元素都需显式给间距。 */
 .post-main {
@@ -409,5 +476,19 @@ button:focus-visible {
   .post-body ul,
   .post-body ol {
     margin-left: 1.2rem;
+  }
+  /* 新闻条目在窄屏上改为上图下文 */
+  .news-item {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .news-photo {
+    flex: none;
+    width: 100%;
+  }
+  .news-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 }

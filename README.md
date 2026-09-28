@@ -56,8 +56,8 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 
 | 页面 | 文件 | 说明 |
 |---|---|---|
-| 首页 | `index.html` | 定位语 + 3 个研究方向卡片 + 最近 3 条新闻 |
-| 新闻 | `lab-notes.html` + `lab-notes-*.html` | 列表页手工排序（新在上）；文章页正文用 `.post-body` 容器 |
+| 首页 | `index.html` | 定位语 + 3 个研究方向卡片 + 最近 4 条新闻（文字条目，链到 News 页锚点） |
+| 新闻 | `lab-notes.html` | 每条新闻直接写在页内：`<article class="news-item" id="news-YYYYMMDD">` = 照片 + 日期 + 中文正文 + 一句英文（`.en`）。新事件按日期倒序插入，并同步首页条目与 `sitemap.xml` |
 | 研究方向 | `projects.html` | 课题编号与 KB `02_PROJECTS/K01–K13` 对齐 |
 | 团队 | `people.html` | PI / 在读学生 / 毕业生三段 |
 | 论文 | `publications.html` | 期刊 / 会议 / 预印本三段 |
@@ -65,5 +65,20 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 | 404 | `404.html` | 站内路径缺失时由 GitHub Pages 提供 |
 | SEO | `sitemap.xml` / `robots.txt` / 各页 `<meta>` | 新增页面时同步补 `sitemap.xml` 与该页 `og:url`/`canonical` |
 
-正文排版样式集中在 `assets/style.css` 的 `.post-body` 一节；文章页可用的元素为
-`h1/h2/h3/p/ul/ol/li/hr/blockquote/code/pre/table/img`，表格需包在 `<div class="table-wrap">` 内以适配窄屏。
+## 图片规范
+
+- 新闻照片放 `img/`，文件名描述事件（如 `Wind_wall_test_GuoYH.jpg`），HTML 里用 `./img/…` 引用；
+- 列表页缩略显示 320×200（CSS `object-fit: cover` 裁切，原图不变形），点缩略图打开原图；
+- 单图控制在 400 KB 以内，长边 ≤ 2300 px；**不做反复重压缩**（JPEG 代际损失不可逆）；
+- 对外发布前做一次元数据体检（只读）：
+  `python3 ~/.sclaw/agent/skills/jekyll-pages-verify/scripts/exif_scan.py img`；
+- 需要备份时先拷到仓库外再处理，并核对“备份数 == 处理数”。
+
+```bash
+grep -rn 'href="/\|src="/' --include="*.html" .        # 应无输出：不允许根路径链接
+grep -rn '{{\|{%' --include="*.html" .                 # 应无输出：不允许模板语法残留
+```
+
+正文与新闻条目可用的元素：`h1/h2/h3/p/ul/ol/li/hr/blockquote/code/pre/table/img`；
+表格需包在 `<div class="table-wrap">` 内以适配窄屏。样式全在 `assets/style.css`：
+`.post-body` 一节管长文正文，`.news-item` 一节管新闻图文条目。
