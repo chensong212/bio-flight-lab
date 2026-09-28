@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="仿生智慧飞行实验室">
+  <rect width="32" height="32" rx="7" fill="#1a1a2e"/>
+  <path d="M5 22C9 12 17 6 27 5 24 15 16 21 5 22Z" fill="#ffffff"/>
+  <path d="M6.6 21.2C13 18 20 12.6 25.6 6.4" stroke="#1a1a2e" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+</svg>

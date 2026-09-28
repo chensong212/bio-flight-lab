@@ -11,14 +11,59 @@
 - 源码：`https://github.com/chensong212/bio-flight-lab`（公开）
 - 网站：`https://chensong212.github.io/bio-flight-lab/`
 
-## 使用
+## 站点形态：纯静态，无构建
+
+本仓库直接就是发布内容，**不经过 Hugo / Jekyll / GitHub Actions**：
+
+- 根目录的 `*.html` 即页面，`assets/` 放 CSS 与图标；
+- 根目录 `.nojekyll` 关闭 GitHub 的 Jekyll 预处理，文件原样发布；
+- Pages 配置为 `main` 分支 `/` 目录（`build_type=legacy` + `.nojekyll` = 静态直发）；
+- 所有站内链接一律用相对路径（`./people.html`），保证项目站子路径 `/bio-flight-lab/` 下正确跳转。
+
+> 2026-09-28 之前的 Hugo + `fwav` 主题骨架已从工作树删除，归档在仓库外
+> `~/Documents/Blog/bio-flight-lab-hugo-legacy-20260928-172856.tar.gz`，也可从 git 历史 `b3d50b6` 取回。
+
+## 本地预览
+
+无需安装任何依赖，任选一种：
 
 ```bash
-git clone https://github.com/chensong212/bio-flight-lab.git
-cd bio-flight-lab
-hugo server  # 本地预览
+cd <仓库目录>
+python3 -m http.server 8000   # 然后打开 http://127.0.0.1:8000/
+# 或直接双击 index.html（相对链接与样式同样可用）
+```
+
+## 本地自查（推送前）
+
+```bash
+grep -rn 'href="/\|src="/' --include="*.html" .        # 应无输出：不允许根路径链接
+grep -rn '{{\|{%' --include="*.html" .                 # 应无输出：不允许模板语法残留
 ```
 
 ## 发布
 
-推送到 `main` 分支，GitHub Actions 自动构建并部署到 GitHub Pages。
+推送到 `main` 即生效（约 1–2 分钟）。构建状态可用 GitHub API 权威核对：
+
+```bash
+curl -s -H "Authorization: Bearer $TOKEN" \
+  https://api.github.com/repos/chensong212/bio-flight-lab/pages/builds/latest \
+  | python3 -c "import sys,json;d=json.load(sys.stdin);print(d['status'], d['commit'], d['error'])"
+```
+
+返回 `status=built` 且 `commit` 等于刚推送的 sha 即发布成功。
+
+## 内容维护
+
+| 页面 | 文件 | 说明 |
+|---|---|---|
+| 首页 | `index.html` | 定位语 + 3 个研究方向卡片 + 最近 3 条新闻 |
+| 新闻 | `lab-notes.html` + `lab-notes-*.html` | 列表页手工排序（新在上）；文章页正文用 `.post-body` 容器 |
+| 研究方向 | `projects.html` | 课题编号与 KB `02_PROJECTS/K01–K13` 对齐 |
+| 团队 | `people.html` | PI / 在读学生 / 毕业生三段 |
+| 论文 | `publications.html` | 期刊 / 会议 / 预印本三段 |
+| 资产归档 | `assets.html` | 条目编号与 FWAV_KB 对齐（`EQ_` / `SW_` / `DS_`） |
+| 404 | `404.html` | 站内路径缺失时由 GitHub Pages 提供 |
+| SEO | `sitemap.xml` / `robots.txt` / 各页 `<meta>` | 新增页面时同步补 `sitemap.xml` 与该页 `og:url`/`canonical` |
+
+正文排版样式集中在 `assets/style.css` 的 `.post-body` 一节；文章页可用的元素为
+`h1/h2/h3/p/ul/ol/li/hr/blockquote/code/pre/table/img`，表格需包在 `<div class="table-wrap">` 内以适配窄屏。

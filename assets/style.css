@@ -1,3 +1,17 @@
+/* 仿生智慧飞行实验室 · 全站样式
+   唯一真源：纯静态站，无构建步骤。修改后直接推 main 生效。 */
+
+:root {
+  --navy: #1a1a2e;        /* 顶栏 / 标题 / 强调线 */
+  --ink: #333;            /* 正文 */
+  --muted: #666;          /* 次要文字 */
+  --faint: #888;          /* 日期、英文小字 */
+  --line: #eee;           /* 分隔线 */
+  --bg-soft: #f8f9fa;     /* 卡片 / 页脚底色 */
+  --link: #1d4e89;        /* 正文内链接 */
+  --measure: 46rem;       /* 正文行长上限（中文约 46 字/行） */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +19,20 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--ink);
   background: #fff;
+}
+
+main {
+  min-height: 60vh; /* 短页面时避免页脚上跳 */
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
 }
 
 .container {
@@ -19,7 +43,7 @@ body {
 
 /* Top bar */
 .topbar {
-  background: #1a1a2e;
+  background: var(--navy);
   color: #fff;
   padding: 1rem 0;
   position: sticky;
@@ -59,16 +83,17 @@ body {
   color: #fff;
 }
 
-/* Hero */
+/* Hero（仅首页） */
 .hero {
   padding: 3rem 0 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--line);
 }
 
 .hero h1 {
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
+  color: var(--navy);
 }
 
 .subtitle {
@@ -79,10 +104,20 @@ body {
 
 .subtitle-en {
   font-size: 0.9rem;
-  color: #888;
+  color: var(--faint);
 }
 
-/* Sections */
+/* 子页页标题（取代原先的行内 style） */
+.page-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 2rem 0 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+/* Sections（首页） */
 .projects-section, .notes-section {
   padding: 2rem 0;
 }
@@ -91,13 +126,14 @@ body {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #1a1a2e;
+  border-bottom: 2px solid var(--navy);
+  color: var(--navy);
 }
 
 /* Project cards */
 .project-card {
-  background: #f8f9fa;
-  border-left: 4px solid #1a1a2e;
+  background: var(--bg-soft);
+  border-left: 4px solid var(--navy);
   padding: 1.2rem 1.5rem;
   margin-bottom: 1.2rem;
   border-radius: 4px;
@@ -106,11 +142,12 @@ body {
 .project-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
+  color: var(--navy);
 }
 
 .project-card .status {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--muted);
   margin-bottom: 0.5rem;
 }
 
@@ -127,17 +164,17 @@ body {
 /* Note items */
 .note-item {
   padding: 1rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--line);
 }
 
 .note-item .date {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--faint);
   margin-right: 0.8rem;
 }
 
 .note-item a {
-  color: #1a1a2e;
+  color: var(--navy);
   font-weight: 600;
   text-decoration: none;
 }
@@ -152,14 +189,206 @@ body {
   color: #555;
 }
 
+/* 列表页尾部的 "All notes →" 一类链接 */
+.more-link {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.more-link a {
+  color: var(--link);
+}
+
+/* Post body（新闻/研究笔记正文排版）
+   注意：* 复位把所有块级间距清零，故 .post-body 内每个元素都需显式给间距。 */
+.post-main {
+  padding: 2rem 0;
+}
+
+.post-body {
+  max-width: var(--measure);
+}
+
+.post-body h1 {
+  font-size: 1.75rem;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+}
+
+.post-body h2 {
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin: 2.2rem 0 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-body h3 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin: 1.6rem 0 0.6rem;
+}
+
+.post-body h4 {
+  font-size: 1rem;
+  color: var(--navy);
+  margin: 1.3rem 0 0.5rem;
+}
+
+.post-body p {
+  margin: 0 0 1rem;
+  line-height: 1.8;
+}
+
+.post-body > *:first-child {
+  margin-top: 0;
+}
+
+.post-body .en {
+  font-size: 0.9rem;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.post-body a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-body a:hover {
+  color: var(--navy);
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 1rem 1.6rem;
+  line-height: 1.8;
+}
+
+.post-body li {
+  margin-bottom: 0.4rem;
+}
+
+.post-body li > ul,
+.post-body li > ol {
+  margin: 0.4rem 0 0 1.4rem;
+}
+
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+.post-body blockquote {
+  border-left: 3px solid var(--navy);
+  background: var(--bg-soft);
+  padding: 0.8rem 1.2rem;
+  margin: 0 0 1rem;
+  color: #4a5568;
+}
+
+.post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+  font-size: 0.88em;
+  background: #f1f3f5;
+  color: var(--navy);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.post-body pre {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: #2d3748;
+}
+
+/* 表格：外层 .table-wrap 兜住窄屏横向滚动 */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.2rem;
+}
+
+.post-body table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.post-body th,
+.post-body td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.post-body th {
+  background: var(--bg-soft);
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 1rem;
+}
+
+/* 页面内提示语（Publications / Assets 的说明段） */
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.sub-title {
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin: 1.5rem 0 0.8rem;
+}
+
 /* Footer */
 .footer {
-  background: #f8f9fa;
+  background: var(--bg-soft);
   padding: 1.5rem 0;
   margin-top: 3rem;
   text-align: center;
   font-size: 0.85rem;
-  color: #888;
+  color: var(--faint);
+}
+
+.footer a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer p + p {
+  margin-top: 0.4rem;
 }
 
 /* Responsive */
@@ -173,5 +402,12 @@ body {
   }
   .hero h1 {
     font-size: 1.5rem;
+  }
+  .post-body h1 {
+    font-size: 1.4rem;
+  }
+  .post-body ul,
+  .post-body ol {
+    margin-left: 1.2rem;
   }
 }

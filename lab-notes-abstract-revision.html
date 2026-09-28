@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>摘要与亮点的修改实录 — 仿生智慧飞行实验室</title>
+  <meta name="description" content="一篇 TAML 论文摘要从参数流水账到贡献导向的重构过程，附英文摘要与 Highlights 修改前后对照。">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="仿生智慧飞行实验室 | Bio-inspired Intelligent Flight Lab">
+  <meta property="og:title" content="摘要与亮点的修改实录 — 仿生智慧飞行实验室">
+  <meta property="og:description" content="一篇 TAML 论文摘要从参数流水账到贡献导向的重构过程，附英文摘要与 Highlights 修改前后对照。">
+  <meta property="og:url" content="https://chensong212.github.io/bio-flight-lab/lab-notes-abstract-revision.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://chensong212.github.io/bio-flight-lab/lab-notes-abstract-revision.html">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -21,7 +30,7 @@
     </div>
   </header>
 
-  <main class="container" style="padding: 2rem 0;">
+  <main class="container post-main">
     <div class="post-body">
       <h1>摘要与亮点的修改实录</h1>
 <p>
@@ -66,7 +75,8 @@
 - Symbolic regression yields a compact mean-lift expression (RMSE 0.0292), trading interpretability against a more accurate Ridge baseline (RMSE 0.0234).
 - The DNN ensemble achieves approximately 2% range-normalized RMSE for phase-resolved thrust and lift, with errors increasing from interpolation to frequency extrapolation.</code></pre>
 <h2>五、改法拆解：从"循序渐进"到"倒金字塔"</h2>
-<table>
+<div class="table-wrap">
+  <table>
 <tr><th>初稿结构（问题）</th><th>新结构（解决）</th></tr>
 <tr><td>第 1 句：背景铺垫</td><td>第 1 句：直接点明"本文提出一个数据驱动框架"</td></tr>
 <tr><td>第 2 句：数据细节 + 被动语态</td><td>第 2 句：数据规模 + 两个互补模型（核心贡献）</td></tr>
@@ -76,6 +86,7 @@
 <tr><td>第 7 句：误差增加（模糊）</td><td>第 5 句：误差随测试类别变化，明确边界</td></tr>
 <tr><td>第 8 句：泛泛总结</td><td>第 6 句：落到"选择显式关系或代理模型"的意义</td></tr>
 </table>
+</div>
 <blockquote><strong>英文期刊摘要要"倒金字塔"：先亮核心贡献，再给关键证据，最后落到意义。</strong></blockquote>
 <p>
 去翻译腔只做三个动作：改<strong>主动语态</strong>（We develop、we establish）；换<strong>精准动词</strong>（presents 框架、develop 模型、attains 精度、outperforming 对比、defining 边界）；<strong>删冗余</strong>（Here,、Along the sampled…）。
