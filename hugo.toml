@@ -1,0 +1,22 @@
+baseURL = 'https://chensong212.github.io/bio-flight-lab/'
+languageCode = 'zh-Hans'
+title = '仿生智慧飞行实验室'
+theme = 'fwav'
+
+[params]
+  description = '从生物机理到自主系统 — Bio-inspired Intelligent Flight'
+  author = '陈松'
+
+[taxonomies]
+  tag = 'tags'
+  project = 'projects'
+  category = 'categories'
+
+[permalinks]
+  posts = '/posts/:slug/'
+  projects = '/projects/:slug/'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

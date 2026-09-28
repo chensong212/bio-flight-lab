@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="kicker">Bio-inspired Intelligent Flight</div>
+      <h1>{{ .Site.Title }}</h1>
+      <p class="hero-text">从生物机理到自主系统。研究扑翼空气动力学、仿生栖息、变体飞行控制。</p>
+      <p class="hero-text en">From biological mechanisms to autonomous systems. We study flapping-wing aerodynamics, bio-inspired perching, and morphing flight control.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <h2>Active Projects / 进行中项目</h2>
+      <div class="cards">
+        {{ range (where .Site.RegularPages "Section" "projects") }}
+          {{ if in .Params.tags "active" }}
+          <div class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary | truncate 160 }}</p>
+            {{ with .Params.tags }}<div class="card-tags">{{ delimit . ", " }}</div>{{ end }}
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-inner">
+      <h2>Lab Notes / 研究笔记</h2>
+      {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+      <div class="news-item">
+        <div class="news-date">{{ .Date.Format "2006-01-02" }}</div>
+        <div class="news-body">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <p>{{ .Summary | truncate 140 }}</p>
+        </div>
+      </div>
+      {{ end }}
+      <p style="margin-top:18px;"><a href="{{ "/posts/" | relURL }}">All notes →</a></p>
+    </div>
+  </section>
+{{ end }}

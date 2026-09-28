@@ -1,0 +1,93 @@
+/* 仿生智慧飞行实验室 — Academic Style */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Georgia, "Songti SC", "Times New Roman", serif; color:#1a2733; background:#fff; line-height:1.75; }
+
+/* Navigation */
+.nav { border-bottom:1px solid #e5e9ed; background:#fff; position:sticky; top:0; z-index:100; }
+.nav-inner { max-width:1080px; margin:0 auto; padding:18px 40px; display:flex; justify-content:space-between; align-items:center; }
+.brand { font-size:20px; font-weight:bold; color:#1a2733; text-decoration:none; letter-spacing:.5px; }
+.brand:hover { color:#0f4c81; }
+.nav-links a { margin-left:28px; color:#4a5a68; text-decoration:none; font-size:14px; font-family:"Helvetica Neue",Arial,sans-serif; }
+.nav-links a:hover, .nav-links a.active { color:#0f4c81; }
+
+/* Hero */
+.hero { background:linear-gradient(180deg,#f5f8fb 0%,#fff 100%); text-align:center; padding:100px 40px 90px; }
+.hero-inner { max-width:720px; margin:0 auto; }
+.kicker { font-size:13px; letter-spacing:3px; color:#0f4c81; text-transform:uppercase; margin-bottom:18px; font-family:"Helvetica Neue",Arial,sans-serif; }
+.hero h1 { font-size:48px; font-weight:normal; color:#10233a; margin-bottom:22px; line-height:1.25; }
+.hero-text { font-size:17px; color:#4a5a68; max-width:600px; margin:0 auto 12px; }
+.hero-text.en { font-size:14.5px; color:#7a8a99; font-style:italic; }
+
+/* Sections */
+.section { padding:70px 40px; }
+.section.alt { background:#fafbfc; }
+.section-inner { max-width:1080px; margin:0 auto; }
+.section h2 { font-size:22px; color:#10233a; margin-bottom:30px; padding-bottom:10px; border-bottom:2px solid #0f4c81; display:inline-block; }
+
+/* Cards */
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+.card { border:1px solid #e5e9ed; padding:28px; background:#fff; }
+.card h3 { font-size:16px; margin-bottom:10px; }
+.card h3 a { color:#0f4c81; text-decoration:none; }
+.card h3 a:hover { text-decoration:underline; }
+.card p { font-size:14px; color:#33465a; line-height:1.7; }
+.card-tags { font-size:12px; color:#8fa3b3; margin-top:12px; }
+
+/* News items */
+.news-item { display:grid; grid-template-columns:120px 1fr; gap:24px; padding:16px 0; border-bottom:1px solid #eef1f4; }
+.news-date { font-size:13px; color:#0f4c81; font-family:"Helvetica Neue",Arial,sans-serif; padding-top:2px; }
+.news-body a { font-size:16px; color:#1a2733; text-decoration:none; font-weight:bold; }
+.news-body a:hover { color:#0f4c81; }
+.news-body p { font-size:13.5px; color:#6b7d91; margin-top:4px; }
+
+/* Page */
+.page { max-width:800px; margin:0 auto; padding:80px 40px; }
+.page h1 { font-size:32px; color:#10233a; margin-bottom:30px; }
+.page h2 { font-size:20px; color:#0f4c81; margin-top:36px; margin-bottom:14px; }
+.page p { font-size:16px; color:#33465a; line-height:1.85; margin-bottom:18px; }
+.page p.en { font-size:14px; color:#7a8a99; font-style:italic; }
+.page ul, .page ol { margin:16px 0; padding-left:20px; }
+.page ul li, .page ol li { font-size:16px; color:#33465a; margin-bottom:8px; }
+.page a { color:#0f4c81; }
+
+/* Post / Project */
+.post, .project { max-width:800px; margin:0 auto; padding:80px 40px; }
+.post h1, .project h1 { font-size:32px; color:#10233a; margin-bottom:10px; }
+.post-date { font-size:13px; color:#0f4c81; margin-bottom:18px; font-family:"Helvetica Neue",Arial,sans-serif; }
+.post-tags { margin-bottom:26px; }
+.tag { display:inline-block; font-size:11px; color:#0f4c81; background:#eef4fb; padding:3px 10px; margin-right:8px; border-radius:3px; font-family:"Helvetica Neue",Arial,sans-serif; }
+.post-body h2 { font-size:20px; color:#0f4c81; margin-top:36px; margin-bottom:14px; }
+.post-body h3 { font-size:17px; color:#10233a; margin-top:28px; margin-bottom:10px; }
+.post-body p { font-size:16px; color:#33465a; line-height:1.85; margin-bottom:18px; }
+.post-body p.en { font-size:14px; color:#7a8a99; font-style:italic; }
+.post-body ul, .post-body ol { margin:12px 0 18px 20px; color:#33465a; }
+.post-body ul li, .post-body ol li { margin-bottom:6px; line-height:1.7; }
+.post-body blockquote { border-left:3px solid #0f4c81; padding:8px 20px; margin:20px 0; color:#5c6b7a; font-style:italic; }
+.post-body blockquote strong { color:#0f4c81; font-style:normal; }
+.post-body img { max-width:100%; height:auto; border:1px solid #e5e9ed; margin:20px 0; }
+.post-body pre { background:#f5f7fa; padding:16px 20px; overflow-x:auto; border-radius:4px; font-size:13.5px; margin:16px 0; }
+.post-body code { font-size:14px; background:#f0f2f5; padding:2px 6px; border-radius:3px; }
+.post-body pre code { background:none; padding:0; }
+.post-body table { border-collapse:collapse; width:100%; margin:20px 0; }
+.post-body th, .post-body td { border:1px solid #e0e4ea; padding:10px 14px; font-size:14px; text-align:left; }
+.post-body th { background:#f5f7fa; font-weight:bold; color:#10233a; }
+
+/* List items */
+.list-item { padding:20px 0; border-bottom:1px solid #eef1f4; }
+.list-item h3 { font-size:18px; margin-bottom:6px; }
+.list-item h3 a { color:#1a2733; text-decoration:none; }
+.list-item h3 a:hover { color:#0f4c81; }
+.list-date { font-size:13px; color:#8fa3b3; margin-bottom:6px; }
+
+/* Footer */
+.footer { border-top:1px solid #e5e9ed; padding:36px; text-align:center; font-size:13px; color:#8fa3b3; }
+
+/* Responsive */
+@media (max-width:768px) {
+  .nav-inner { flex-direction:column; gap:12px; }
+  .nav-links a { margin:0 14px; }
+  .hero h1 { font-size:32px; }
+  .cards { grid-template-columns:1fr; }
+  .news-item { grid-template-columns:80px 1fr; }
+}

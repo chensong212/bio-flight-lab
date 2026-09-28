@@ -1,0 +1,24 @@
+[[main]]
+  name = 'Home'
+  url = '/'
+  weight = 1
+[[main]]
+  name = 'Lab Notes'
+  url = '/posts/'
+  weight = 2
+[[main]]
+  name = 'Projects'
+  url = '/projects/'
+  weight = 3
+[[main]]
+  name = 'People'
+  url = '/people/'
+  weight = 4
+[[main]]
+  name = 'Publications'
+  url = '/publications/'
+  weight = 5
+[[main]]
+  name = 'Assets'
+  url = '/assets/'
+  weight = 6
