@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Top bar */
+.topbar {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.topbar nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.topbar nav a:hover {
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle-en {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Sections */
+.projects-section, .notes-section {
+  padding: 2rem 0;
+}
+
+.projects-section h2, .notes-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #1a1a2e;
+}
+
+/* Project cards */
+.project-card {
+  background: #f8f9fa;
+  border-left: 4px solid #1a1a2e;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: 4px;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.project-card .status {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  margin-bottom: 0.5rem;
+}
+
+.project-card .en {
+  font-size: 0.85rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* Note items */
+.note-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.note-item .date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-right: 0.8rem;
+}
+
+.note-item a {
+  color: #1a1a2e;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.note-item a:hover {
+  text-decoration: underline;
+}
+
+.note-item p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Footer */
+.footer {
+  background: #f8f9fa;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .topbar nav {
+    gap: 0.8rem;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
