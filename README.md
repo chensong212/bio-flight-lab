@@ -42,7 +42,15 @@ grep -rn '{{\|{%' --include="*.html" .                 # 应无输出：不允�
 
 ## 发布
 
-推送到 `main` 即生效（约 1–2 分钟）。构建状态可用 GitHub API 权威核对：
+`main` 分支的内容就是线上内容，合并/推送后约 1–2 分钟生效。
+
+自 2026-10-03 起，`main` 受 Ruleset `protect-main` 保护（`enforcement=active`）：
+
+- 必须 Pull Request + 1 个批准，且 `.github/CODEOWNERS` 把全部文件归到 `@chensong212`，所以**必须 PI 本人批准**；
+- 禁止强推、禁止删除 `main`；合并方式只允许 **Squash**；
+- bypass 名单绑的是“仓库管理员”**角色**（不是具体人），因此 PI 可直推 `main` 救火；**不要把其他人提升为 Admin**，那等于授予绕过权。
+
+学生维护者的日常路径与条目模板见 `news_template.md`。构建状态可用 GitHub API 权威核对：
 
 ```bash
 curl -s -H "Authorization: Bearer $TOKEN" \
@@ -57,7 +65,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 | 页面 | 文件 | 说明 |
 |---|---|---|
 | 首页 | `index.html` | 定位语 + 3 个研究方向卡片 + 最近 4 条新闻（文字条目，链到 News 页锚点） |
-| 新闻 | `lab-notes.html` | 每条新闻直接写在页内：`<article class="news-item" id="news-YYYYMMDD">` = 照片 + 日期 + 中文正文 + 一句英文（`.en`）。新事件按日期倒序插入，并同步首页条目与 `sitemap.xml` |
+| 新闻 | `lab-notes.html` | 每条新闻直接写在页内：`<article class="news-item" id="news-YYYYMMDD">` = 照片 + 日期 + 中文正文 + 一句英文（`.en`）。新事件按日期倒序插入，并同步首页条目（`sitemap.xml` 不用动）。维护流程与学生权限边界见 `news_template.md` |
 | 研究方向 | `projects.html` | 课题编号与 KB `02_PROJECTS/K01–K13` 对齐 |
 | 团队 | `people.html` | PI / 在读学生 / 毕业生三段 |
 | 论文 | `publications.html` | 期刊 / 会议 / 预印本三段 |
