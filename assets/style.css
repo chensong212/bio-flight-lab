@@ -531,24 +531,8 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
-.pub-status {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 0.05rem 0.45rem;
-  border-radius: 3px;
-  margin-left: 0.4rem;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
-.pub-status-ok {
-  background: #e7f0e9;
-  color: #2f6b45;
-}
-
-.pub-status-pend {
-  background: #f4efe3;
-  color: #7a5f2a;
+.pub-venue a {
+  color: var(--link);
 }
 
 .pub-note {

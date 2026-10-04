@@ -68,7 +68,7 @@ curl -s -H "Authorization: Bearer $TOKEN" \
 | 新闻 | `lab-notes.html` | 每条新闻直接写在页内：`<article class="news-item" id="news-YYYYMMDD">` = 照片 + 日期 + 中文正文 + 一句英文（`.en`）。新事件按日期倒序插入，并同步首页条目（`sitemap.xml` 不用动）。维护流程与学生权限边界见 `news_template.md` |
 | 研究方向 | `projects.html` | 课题编号与 KB `02_PROJECTS/K01–K13` 对齐 |
 | 团队 | `people.html` | PI / 在读学生 / 毕业生三段 |
-| 论文 | `publications.html` | 期刊 / 会议 / 预印本三段 |
+| 论文 | `publications.html` | **只列已发表论文**，每条带 DOI；段落仅在有条目时显示；在投与修改中的稿件不上页 |
 | 资产归档 | `assets.html` | 条目编号与 FWAV_KB 对齐（`EQ_` / `SW_` / `DS_`） |
 | 404 | `404.html` | 站内路径缺失时由 GitHub Pages 提供 |
 | SEO | `sitemap.xml` / `robots.txt` / 各页 `<meta>` | 新增页面时同步补 `sitemap.xml` 与该页 `og:url`/`canonical` |
