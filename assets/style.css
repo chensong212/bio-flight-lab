@@ -481,6 +481,22 @@ button:focus-visible {
   margin: 0 0 1rem;
 }
 
+/* 数学式已改为纯文本 + 上下标，控制行高以免撑开中文正文行 */
+.post-body sup,
+.post-body sub {
+  font-size: 0.72em;
+  line-height: 0;
+  position: relative;
+}
+
+.post-body sup {
+  top: -0.45em;
+}
+
+.post-body sub {
+  top: 0.25em;
+}
+
 /* 页面内提示语（Publications / Assets 的说明段） */
 .hint {
   color: var(--muted);
