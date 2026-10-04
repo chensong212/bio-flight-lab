@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从学生初稿到修改稿：论文摘要修改实录与经验总结 — 仿生智慧飞行实验室</title>
+  <meta name="description" content="一篇 TAML 论文摘要与 Highlights 的重构过程：从参数流水账改为贡献导向，附修改前后对照与写作建议。">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="仿生智慧飞行实验室 | Bio-inspired Intelligent Flight Lab">
+  <meta property="og:title" content="从学生初稿到修改稿：论文摘要修改实录与经验总结">
+  <meta property="og:description" content="一篇 TAML 论文摘要与 Highlights 的重构过程：从参数流水账改为贡献导向，附修改前后对照与写作建议。">
+  <meta property="og:url" content="https://chensong212.github.io/bio-flight-lab/lab-notes-abstract-revision.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://chensong212.github.io/bio-flight-lab/lab-notes-abstract-revision.html">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="./index.html">仿生智慧飞行实验室</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./lab-notes.html">News</a>
+        <a href="./projects.html">Research</a>
+        <a href="./people.html">People</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./assets.html">Assets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container post-main">
+    <div class="post-body">
+      <h1>从学生初稿到修改稿：论文摘要修改实录与经验总结</h1>
+      <p class="post-meta">作者：<span class="post-author">陈松老师</span> · <time datetime="2026-08-19">2026-08-19</time></p>
+<h2 id="1-背景与原文回顾">1. 背景与原文回顾</h2>
+        
+      <p>我们近期拟投稿的一篇英文论文，题为 <em>“Data-driven modeling of cycle-averaged and phase-resolved aerodynamic responses of a three-dimensional rigid flapping wing”</em>。初稿完成后，我让学生将论文交给 AI 助手做语言润色，结果 AI 只是机械地替换了几个同义词，完全没有触及根本问题——<strong>摘要写成了参数研究的流水账，Highlights 也与正文贡献脱节</strong>。</p>
+        
+      <h3 id="11-初稿摘要原文">1.1 初稿摘要（原文）</h3>
+        
+      <blockquote>
+          <p>The aerodynamic response of a flapping wing depends jointly on its operating condition and on the phase within the flapping cycle, posing distinct requirements for interpretable mean-load relations and phase-resolved surrogate models. Here, a data-driven analysis was conducted of a three-dimensional rigid NACA 0014 wing using 72 computational-fluid-dynamics (CFD) conditions spanning freestream velocity, flapping frequency, flapping-angle amplitude, and static angle of attack. Separate reference areas and a propulsion-positive sign convention were used to distinguish dimensional forces from normalized lift and thrust coefficients. Along the sampled one-factor sequences, increasing freestream velocity reduced both mean coefficients while increasing the corresponding forces; increasing frequency strengthened the aerodynamic responses overall; increasing amplitude primarily enhanced thrust without a monotonic lift benefit; and increasing angle of attack raised lift while inducing a thrust-to-drag transition between 7.5° and 10°. For cycle-averaged lift, a frozen symbolic-regression expression achieved a test RMSE of 0.0292 and $R^2=0.9940$, while a second-order polynomial Ridge baseline attained an RMSE of 0.0234. For phase-resolved prediction, a five-network deep-neural-network ensemble achieved range-normalized RMSE values of 1.80% for thrust and 1.77% for lift, compared with 7.66% and 7.07% for a Fourier–Ridge baseline. Errors increased for joint parameter changes and frequency extrapolation. These results establish complementary data-driven routes for explicit mean-load estimation and accurate phase-resolved waveform prediction across the sampled operating conditions.</p>
+        </blockquote>
+        
+      <h3 id="12-初稿-highlights原文">1.2 初稿 Highlights（原文）</h3>
+        
+      <ol>
+          <li>Mean forces and coefficients exhibit distinct responses to freestream velocity.</li>
+          <li>Symbolic regression provides a compact explicit relation for cycle-averaged lift.</li>
+          <li>A DNN predicts phase-resolved loads accurately within explicit validity boundaries.</li>
+        </ol>
+        
+      <hr />
+        
+      <h2 id="2-核心问题诊断">2. 核心问题诊断</h2>
+        
+      <h3 id="21-摘要给人印象是一堆参数">2.1 摘要：给人印象是一堆参数</h3>
+        
+      <ul>
+          <li><strong>结构失衡</strong>：全文 8 句话中，第 4 句用分号并列了四个单因素趋势（速度、频率、幅度、攻角），占全文近 40% 篇幅。读者读完一半还不知道文章到底做了什么方法创新。</li>
+          <li><strong>细节过度</strong>：攻角趋势中给出了精确角度范围 “between 7.5° and 10°”，这是正文结果部分的离散数据点，放在摘要中既破坏与其他趋势的详略平衡，又让读者误以为这是普适规律。</li>
+          <li><strong>中文直译痕迹明显</strong>：大量被动语态（“was conducted”, “were used”）、中式直译（“Along the sampled…”, “establish complementary data-driven routes”）、以及生硬短语（“without a monotonic lift benefit”）。</li>
+        </ul>
+        
+      <h3 id="22-highlights与摘要和正文均不匹配">2.2 Highlights：与摘要和正文均不匹配</h3>
+        
+      <ul>
+          <li><strong>亮点 1</strong> 只提了速度对力/系数的不同影响，这是最基础的参数分析，并非文章核心贡献。</li>
+          <li><strong>亮点 2</strong> 忽略了与 Ridge 基线的对比，未提及 SR 表达式的测试误差（RMSE 0.0292），信息量不足。</li>
+          <li><strong>亮点 3</strong> 中 “within explicit validity boundaries” 表述不准确——文中并未给出严格边界，而是通过测试集分类展示了误差递增趋势；且未提及 DNN 的集成策略、对比基线及具体精度。</li>
+        </ul>
+        
+      <hr />
+        
+      <h2 id="3-修改方案">3. 修改方案：</h2>
+        
+      <h3 id="31-新摘要修改版">3.1 新摘要（修改版）</h3>
+        
+      <blockquote>
+          <p>This study presents a data-driven framework for predicting cycle-averaged and phase-resolved aerodynamic responses of a three-dimensional rigid flapping wing. Using 72 computational-fluid-dynamics conditions spanning freestream velocity, flapping frequency, amplitude, and angle of attack, we develop <strong>two complementary models</strong>: a symbolic-regression expression for mean lift and a five-network deep-neural-network ensemble for phase-dependent thrust and lift. For cycle-averaged lift, the selected explicit expression achieves a test RMSE of 0.0292 and $R^2=0.9940$, while a polynomial Ridge baseline yields a lower RMSE of 0.0234, illustrating a trade-off between interpretability and accuracy. For phase-resolved prediction, the DNN ensemble attains range-normalized RMSE values of 1.80% for thrust and 1.77% for lift, outperforming a Fourier–Ridge baseline (7.66% and 7.07%). Errors are lowest for one-factor interpolation and increase systematically for joint parameter variations and frequency extrapolation, thereby defining empirical validity boundaries. These results establish a reproducible basis for selecting either an explicit mean-load relation or a phase-resolved surrogate in flapping-wing aerodynamic analysis.</p>
+        </blockquote>
+        
+      <h3 id="32-新-highlights修改版">3.2 新 Highlights（修改版）</h3>
+        
+      <ul>
+          <li>A data-driven framework couples symbolic regression (explicit) and a DNN ensemble (accurate) for flapping-wing aerodynamics.</li>
+          <li>Symbolic regression yields a compact mean-lift expression (RMSE 0.0292), trading interpretability against a more accurate Ridge baseline (RMSE 0.0234).</li>
+          <li>The DNN ensemble achieves approximately 2% range-normalized RMSE for phase-resolved thrust and lift, with errors increasing from interpolation to frequency extrapolation.</li>
+        </ul>
+        
+      <hr />
+        
+      <h2 id="4-修改思路详解从流水账到贡献导向">4. 修改思路详解：从“流水账”到“贡献导向”</h2>
+        
+      <h3 id="41-结构重组核心转变">4.1 结构重组（核心转变）</h3>
+        
+      <div class="table-wrap">
+      <table>
+          <thead>
+            <tr>
+              <th>初稿结构（问题）</th>
+              <th>新摘要结构（解决）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第1句：背景（依赖条件和相位）</td>
+              <td><strong>第1句：直接点明“本文提出了一个数据驱动框架”</strong></td>
+            </tr>
+            <tr>
+              <td>第2句：数据细节 + 被动语态</td>
+              <td><strong>第2句：数据规模 + 两个互补模型（核心贡献）</strong></td>
+            </tr>
+            <tr>
+              <td>第3句：符号约定（琐碎）</td>
+              <td>合并到方法描述中，不单独成句</td>
+            </tr>
+            <tr>
+              <td>第4句：四个趋势流水账（占40%）</td>
+              <td><strong>完全删除</strong>，压缩为引言/正文内容</td>
+            </tr>
+            <tr>
+              <td>第5-6句：SR 和 DNN 结果</td>
+              <td><strong>第3-4句：SR 和 DNN 结果（保留关键数字）</strong></td>
+            </tr>
+            <tr>
+              <td>第7句：误差增加（模糊）</td>
+              <td><strong>第5句：误差随测试类别的变化（明确边界）</strong></td>
+            </tr>
+            <tr>
+              <td>第8句：总结（routes across conditions）</td>
+              <td><strong>第6句：结论（reproducible basis for selecting models）</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+      <p><strong>为什么这样改？</strong><br />
+        英文期刊摘要更倾向“倒金字塔”：先亮核心贡献，再给关键证据，最后落脚到意义。初稿是典型的“循序渐进”中式写法，编辑和审稿人需要读到一半才能抓住重点。新摘要将参数趋势全部压缩为第2句的 “spanning freestream velocity…”，一笔带过，把节省的篇幅让给方法创新和性能对比。</p>
+        
+      <h3 id="42-语言去翻译腔">4.2 语言去翻译腔</h3>
+        
+      <ul>
+          <li>全篇使用 <code>We develop</code>, <code>we establish</code> 等，避免 <code>was conducted</code> 等被动。</li>
+          <li><code>presents</code> (框架), <code>develop</code> (模型), <code>attains</code> (精度), <code>outperforming</code> (对比), <code>defining</code> (边界)。</li>
+          <li>用 <code>while</code> (对比 SR 和 Ridge), <code>thereby</code> (误差导致边界), <code>either...or</code> (选择意义) 等自然衔接。</li>
+          <li>去掉 <code>Here,</code>, <code>Along the sampled...</code>, <code>creating distinct requirements</code> 等中式直译。</li>
+        </ul>
+        
+      <h3 id="43-highlights-的同步调整">4.3 Highlights 的同步调整</h3>
+        
+      <p>Highlights 需要与摘要的“贡献导向”一致，且每条应是一个独立、自包含的卖点。</p>
+        
+      <ul>
+          <li><strong>第1条</strong>：删除旧亮点1（速度趋势），改为突出<strong>框架双模型结构</strong>，点明“显式 vs 准确”的互补性。</li>
+          <li><strong>第2条</strong>：保留 SR 的 RMSE 0.0292，但<strong>补入 Ridge 的 0.0234 作为对比</strong>，明确“可解释性-准确性权衡”。</li>
+          <li><strong>第3条</strong>：将具体数字 1.77–1.80% 改为 <strong>approximately 2%</strong>（只告诉读者大致误差量级），并将误差递增规律（插值→外推）作为边界依据，剔除不准确的“explicit validity boundaries”说法。</li>
+        </ul>
+        
+      <h3 id="44-细节处理原则">4.4 细节处理原则</h3>
+        
+      <ul>
+          <li><strong>具体数字</strong>：摘要中保留 SR 和 DNN 的精确 RMSE（因为这是方法性能的核心证据），但 Highlights 中 DNN 精度改用约数，符合“亮点”的概括性要求。</li>
+          <li><strong>攻角推力-阻力转变</strong>：删除 7.5°–10° 这个具体区间，因为这不是文章贡献，且数字过于具体。正文 Results 部分已有完整数据，摘要无需重复。</li>
+        </ul>
+        
+      <hr />
+        
+      <h2 id="5-给学生们的两点写作建议">5. 给学生们的两点写作建议</h2>
+        
+      <ol>
+          <li>
+            <p><strong>摘要不是“实验报告”，而是要告诉别人我做了什么贡献</strong><br />
+        先问自己：如果读者只记住一句话，我希望是哪句？把这句话放在摘要最前面。参数影响、数据细节、符号约定都是支撑材料，能压缩就压缩，能删除就删除。</p>
+          </li>
+          <li>
+            <p><strong>Highlights 是“广告语”，不是“目录”</strong><br />
+        每条 Highlight 应该让非专业编辑一眼看懂创新点，并愿意点开全文。避免模糊表述（如 “explicit validity boundaries”），用具体对比（如 “trading interpretability against accuracy”）和关键数字（但非全部细节）来支撑。</p>
+          </li>
+        </ol>
+        
+      <hr />
+        
+      <h2 id="6-结语">6. 结语</h2>
+        
+      <p>这篇博客记录了从初稿到终稿的完整修改轨迹。希望同学们在下次写摘要时，能跳出“先介绍背景，再讲做了什么，最后说结果”的惯性，尝试用“倒金字塔”结构，把最硬的成果亮在开头。记住：<strong>编辑和审稿人没有义务读完你的摘要去猜你的贡献，你必须替他们总结好。</strong></p>
+        
+      <hr />
+        
+      <p><em>如有任何问题，欢迎在组会中讨论。</em></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><a href="./lab-notes.html">← News</a></p>
+      <p>仿生智慧飞行实验室 — Bio-inspired Intelligent Flight Lab — © 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
