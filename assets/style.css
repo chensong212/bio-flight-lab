@@ -393,14 +393,17 @@ button:focus-visible {
   margin: 0 0 1.2rem;
 }
 
-.post-body table {
+.post-body table,
+.data-table {
   border-collapse: collapse;
   width: 100%;
   font-size: 0.92rem;
 }
 
 .post-body th,
-.post-body td {
+.post-body td,
+.data-table th,
+.data-table td {
   border: 1px solid #e2e8f0;
   padding: 0.5rem 0.75rem;
   text-align: left;
@@ -408,10 +411,16 @@ button:focus-visible {
   line-height: 1.6;
 }
 
-.post-body th {
+.post-body th,
+.data-table th {
   background: var(--bg-soft);
   color: var(--navy);
   font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 团队表：姓名列不加粗但保持不折行，两列表单行宽读起来更整齐 */
+.data-table td:first-child {
   white-space: nowrap;
 }
 
