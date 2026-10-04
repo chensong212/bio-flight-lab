@@ -483,18 +483,78 @@ button:focus-visible {
 
 /* 数学式已改为纯文本 + 上下标，控制行高以免撑开中文正文行 */
 .post-body sup,
-.post-body sub {
+.post-body sub,
+.pub-item sup,
+.pub-item sub {
   font-size: 0.72em;
   line-height: 0;
   position: relative;
 }
 
-.post-body sup {
+.post-body sup,
+.pub-item sup {
   top: -0.45em;
 }
 
-.post-body sub {
+.post-body sub,
+.pub-item sub {
   top: 0.25em;
+}
+
+/* Publications 条目 */
+.pub-item {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pub-item:last-of-type {
+  border-bottom: 0;
+}
+
+.pub-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.pub-venue {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.pub-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 3px;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.pub-status-ok {
+  background: #e7f0e9;
+  color: #2f6b45;
+}
+
+.pub-status-pend {
+  background: #f4efe3;
+  color: #7a5f2a;
+}
+
+.pub-note {
+  font-size: 0.85rem;
+  color: var(--faint);
+  margin: 0.8rem 0 0;
 }
 
 /* 页面内提示语（Publications / Assets 的说明段） */
