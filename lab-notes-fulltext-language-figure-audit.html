@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>论文全文排查实录与常见问题 — 仿生智慧飞行实验室</title>
+  <meta name="description" content="拿到完整 LaTeX 初稿后的全文排查：翻译腔、内部代号、术语未定义与图表标题不规范，逐类给出错例与改法。">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="仿生智慧飞行实验室 | Bio-inspired Intelligent Flight Lab">
+  <meta property="og:title" content="论文全文排查实录与常见问题">
+  <meta property="og:description" content="拿到完整 LaTeX 初稿后的全文排查：翻译腔、内部代号、术语未定义与图表标题不规范，逐类给出错例与改法。">
+  <meta property="og:url" content="https://chensong212.github.io/bio-flight-lab/lab-notes-fulltext-language-figure-audit.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://chensong212.github.io/bio-flight-lab/lab-notes-fulltext-language-figure-audit.html">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="./index.html">仿生智慧飞行实验室</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./lab-notes.html">News</a>
+        <a href="./projects.html">Research</a>
+        <a href="./people.html">People</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./assets.html">Assets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container post-main">
+    <div class="post-body">
+      <h1>论文全文排查实录与常见问题</h1>
+      <p class="post-meta">作者：<span class="post-author">陈松老师</span> · <time datetime="2026-09-27">2026-09-27</time> · <a href="https://chensong212.github.io/2026-09-27/fulltext-language-figure-audit/">原文发表于此</a></p>
+<p>编者按：本文是<a href="https://chensong212.github.io/2026/08/19/abstract-revision/">《从学生初稿到修改稿：论文摘要修改实录与经验总结》</a>的续篇。上一篇解决”写什么”——把摘要从参数流水账重构为贡献导向；这一篇解决”怎么写”。当我们拿到完整的 LaTeX 初稿和编译后的 PDF 时，发现全文仍存在大量翻译腔、术语不透明、图表标题不规范、内部代号混乱。这些不解决，审稿人很可能以”语言质量差”“可读性低”为由要求大修甚至拒稿。文中英文例句均为原文照录，用作教学对照。面向课题组学生。</p>
+        
+      <h2 id="一问题摘要只是冰山一角">一、问题：摘要只是冰山一角</h2>
+        
+      <p>摘要改好了，不代表全文能读。真正的排查要从第一句做到最后一张图。下面按”隐蔽程度”和”对审稿的影响”分类，给出典型错误与改法。</p>
+        
+      <h2 id="二翻译腔与搭配最隐蔽的拒稿理由">二、翻译腔与搭配：最隐蔽的拒稿理由</h2>
+        
+      <p>这类错误语法没错、意思也对，但母语者不会那样写，读起来感觉很别扭。</p>
+        
+      <p><strong>案例 1｜引言首句。</strong> 原文：</p>
+        
+      <blockquote>
+          <p>Flapping wings generate lift and thrust through <strong>strongly unsteady</strong>, three-dimensional flows <strong>whose loads</strong> depend jointly on…</p>
+        </blockquote>
+        
+      <p>两处问题。<code>strongly unsteady</code> 是”强烈的非定常”的中式直译，英文流体力学文献更常用 <code>highly unsteady</code>，或直接用 <code>unsteady</code>——非定常本身已隐含时变。<code>whose loads</code> 语法上指代 flows，但载荷作用在机翼上、不是流体上，逻辑错位。改为：</p>
+        
+      <blockquote>
+          <p>Flapping wings generate lift and thrust through <strong>highly unsteady</strong>, three-dimensional flows. <strong>The resulting aerodynamic loads</strong> depend jointly on…</p>
+        </blockquote>
+        
+      <p><strong>案例 2｜搭配不当。</strong> <code>CFD has consequently become an important route for resolving…</code> 中的 <code>route</code> 指物理路径，此处应表”方法/工具”，改 <code>tool</code>、<code>approach</code> 或 <code>means</code>。</p>
+        
+      <p><strong>案例 3｜口语化。</strong> <code>…the selected model form and validation domain matter</code> 中的 <code>matter</code> 在学术写作中偏口语，改 <code>play a critical role</code> 或 <code>significantly affect the results</code>。</p>
+        
+      <p><strong>案例 4｜用词误导。</strong> <code>The opposite velocity trends follow from normalization rather than contradictory data</code> 会让人以为数据本身冲突，其实只是归一化导致趋势相反。改 <code>contradictory trends</code> 或 <code>apparently contradictory observations</code>。</p>
+        
+      <p><strong>案例 5｜用词不当。</strong> <code>The other one-factor sequences also resist simple generalization</code> 中的 <code>resist</code> 拟人化的用词，虽可理解，但不恰当。改为： <code>cannot be easily generalized</code>。</p>
+        
+      <blockquote>
+          <p><strong>翻译腔最隐蔽：语法没错、意思也对，但母语者不会那样写。</strong></p>
+        </blockquote>
+        
+      <h2 id="三代号与术语读者最大的困惑">三、代号与术语：读者最大的困惑</h2>
+        
+      <p><strong>案例 6｜内部工况代号满天飞。</strong> 全文出现 <code>case A7</code>、<code>A4</code>、<code>E15</code>、<code>E16</code>、<code>F9</code>、<code>G1</code>、<code>G2</code> 等 72 个工况代号，却从未解释命名规则。读者既对不上参数，也不知道 A/B/C/D 各代表什么——实际是单因素变化序列：A 速度、B 频率、C 振幅、D 攻角。改法有三：在 Results 3.1 节开头明确定义四个系列；补一张附录表，列出全部 72 个工况的代号、完整参数、所属系列与数据划分角色；首次提及某代号时用括号给出关键参数，例如 <code>F9 (U∞ = 12 m/s, f = 6 Hz, θm = 45°, α = 10°)</code>。</p>
+        
+      <p><strong>案例 7｜软件术语缺乏解释。</strong></p>
+        
+      <ul>
+          <li><code>native samples</code>（2.3 节）指 CFD 原始时间步输出，读者未必理解，改 <code>original CFD time-step samples</code> 或首次出现时定义。</li>
+          <li><code>refinement-transition length was 3</code>（2.2 节）是 XFlow 网格自适应参数，加括号说明它控制网格由粗到细过渡的单元数。</li>
+          <li><code>frozen</code> SR expression（摘要、2.4 节）是符号回归术语，指选定表达式结构后固定，补 <code>i.e., its mathematical form was fixed</code>。</li>
+          <li><code>development set</code>（2.4 节）由 49 training + 8 validation 组成，首次出现应写成 <code>the 57 development conditions (49 training + 8 validation)</code>。</li>
+        </ul>
+        
+      <blockquote>
+          <p><strong>读者读不懂代号，不是读者的问题，是作者把工程台账当成了论文。</strong></p>
+        </blockquote>
+        
+      <h2 id="四图表标题与视觉编码能不能脱离正文读懂">四、图表标题与视觉编码：能不能脱离正文读懂</h2>
+        
+      <p><strong>案例 8｜标题不够规范。</strong> 图 4、图 5 标题用了 <code>(\textbf{(a)})</code> 语法，PDF 输出成 <code>((a))</code>，不符合学术规范。正确写法：</p>
+        
+      <pre><code>(a) Cycle-averaged coefficients for the A-series velocity sequence; (b) Mean forces for the A-series velocity sequence.
+        </code></pre>
+        
+      <p><strong>案例 9｜图片信息过载。</strong> 图 1c 同时用颜色表示 α、符号大小表示 θm、形状表示角色，三重编码在静态图中极难解读。建议简化（如只用形状区分角色），并配附录表，确保不看正文也能大致读懂。</p>
+        
+      <p><strong>案例 10｜参数来源缺失。</strong> 轴向参考面积 $S_x = 0.012\,\text{m}^2$ 突然出现、未交代来历；推力系数用 frontal area、升力系数用 planform area，读者会疑惑为何不统一。建议加注 <code>following XFlow's default frontal-area normalization</code>，点明这是软件约定而非作者随意选择。</p>
+        
+      <blockquote>
+          <p><strong>图要能脱离正文独立读懂——标题、编码、来源缺一不可。</strong></p>
+        </blockquote>
+        
+      <h2 id="六排查清单">六、排查清单</h2>
+        
+      <div class="table-wrap">
+      <table>
+          <thead>
+            <tr>
+              <th>问题类型</th>
+              <th>优先级</th>
+              <th>关键动作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>代号系统混乱</td>
+              <td>最高</td>
+              <td>补附录工况表，定义系列命名规则</td>
+            </tr>
+            <tr>
+              <td>翻译腔 / 搭配不当</td>
+              <td>高</td>
+              <td>逐句朗读，替换非地道搭配，拆分长句</td>
+            </tr>
+            <tr>
+              <td>术语未定义</td>
+              <td>高</td>
+              <td>首次出现时加简短解释</td>
+            </tr>
+            <tr>
+              <td>图表标题与视觉编码</td>
+              <td>中</td>
+              <td>修正嵌套括号，简化编码</td>
+            </tr>
+            <tr>
+              <td>拼写 / 语法</td>
+              <td>中</td>
+              <td>拼写检查工具 + 人工校对</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+      <h2 id="七总结">七、总结</h2>
+        
+      <ol>
+          <li><strong>写完摘要，更要通读全文。</strong> 每一句话、每一个符号、每一幅图，都站在”第一次读这篇论文的陌生人”的角度去审视。如果连自己都要翻回前文才想起某个代号，读者更会如此。</li>
+          <li><strong>从项目开始就维护”术语表”和”代号表”。</strong> 记录每个内部代号（工况 ID、网格设置名）对应的真实参数，完稿前转成附录表。这是提升可读性比较省力的办法。</li>
+          <li><strong>警惕”中译英”机翻痕迹。</strong> 有的同学用中文写了初稿，再机器或AI翻译，以为就完事了。这是极不负责任的做法。即便用英文直接写作，思维习惯也会带出中式搭配。所以要多读文献，回想看过的文献里有没有相应的表达；同时自己大声朗读；当然也可以请母语者或有经验的师兄师姐润色。</li>
+        </ol>
+        
+      <p>希望同学们下次投稿前能按清单逐项检查一遍自己的论文。</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><a href="./lab-notes.html">← News</a></p>
+      <p>仿生智慧飞行实验室 — Bio-inspired Intelligent Flight Lab — © 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

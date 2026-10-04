@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>变幅扑翼摘要修改实录 — 仿生智慧飞行实验室</title>
+  <meta name="description" content="一篇扑翼飞行器会议论文摘要的修改过程：逐句诊断初稿问题，把核心结论前置，附修改前后对照。">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="仿生智慧飞行实验室 | Bio-inspired Intelligent Flight Lab">
+  <meta property="og:title" content="变幅扑翼摘要修改实录">
+  <meta property="og:description" content="一篇扑翼飞行器会议论文摘要的修改过程：逐句诊断初稿问题，把核心结论前置，附修改前后对照。">
+  <meta property="og:url" content="https://chensong212.github.io/bio-flight-lab/lab-notes-variable-amplitude-abstract-revision.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://chensong212.github.io/bio-flight-lab/lab-notes-variable-amplitude-abstract-revision.html">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="./index.html">仿生智慧飞行实验室</a>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./lab-notes.html">News</a>
+        <a href="./projects.html">Research</a>
+        <a href="./people.html">People</a>
+        <a href="./publications.html">Publications</a>
+        <a href="./assets.html">Assets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container post-main">
+    <div class="post-body">
+      <h1>变幅扑翼摘要修改实录</h1>
+      <p class="post-meta">作者：<span class="post-author">陈松老师</span> · <time datetime="2026-09-28">2026-09-28</time> · <a href="https://chensong212.github.io/2026-09-28/variable-amplitude-abstract-revision/">原文发表于此</a></p>
+<p>编者按：本文记录一次会议论文摘要的修改过程，对象是课题组学生投往某国际会议的一篇扑翼飞行器论文——<em>A Variable-amplitude Flight Strategy Study for Flapping Wing Aircraft Vehicle</em>。</p>
+        
+      <h2 id="一摘要原稿">一、摘要原稿：</h2>
+        
+      <p>下面是学生的原始初稿：</p>
+        
+      <blockquote>
+          <p>This study presents Aquila-S, a single-drivetrain flapping-wing platform for regulating aerodynamic output and comparing electrical input power under equivalent mean-force constraints. A Pixhawk–STM32G4 architecture supports continuous full-amplitude flapping, low-frequency variable-amplitude flapping, phase-locked gliding, and periodic flap-gliding. Source-code co-simulation evaluated mode scheduling and phase control, while fixed-bench tests assessed aerodynamic forces and electrical input power. Variable-amplitude flapping provided adjustable low-output operation, but repeated drivetrain reversal limited the attainable frequency. Static screening identified θ = −10.0° as the target glide phase for subsequent flap-glide tests. These tests used 3 m/s inflow, a 30° body installation angle, and 3 Hz active flapping. At a 30% glide fraction, cycle periods of 4 and 6 s satisfied the prescribed mean-force tolerances. Relative to continuous flapping, these conditions reduced mean electrical input power by 20.1% and 19.8%, respectively. Force-matched flap-glide operation offers a promising approach to reducing mean electrical input power.</p>
+        </blockquote>
+        
+      <p>逐句诊断：</p>
+        
+      <div class="table-wrap">
+      <table>
+          <thead>
+            <tr>
+              <th>句</th>
+              <th>问题</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>single-drivetrain</code> 不是领域标准术语；<code>Aquila-S</code> 项目代号在摘要中不传递信息；核心结论被埋到最后一句</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>四种模式列举尚可，但缺乏与后文的衔接线索</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><code>Source-code co-simulation</code> 含义模糊，实际是软件程序在环仿真</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>传动反转限制频率不是什么优点，在摘要中突出强调没有必要</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><code>Static screening</code> 同样含义模糊，读者只能推测其代表的意思</td>
+            </tr>
+            <tr>
+              <td>6–9</td>
+              <td>参数堆砌（3 m/s、30°、3 Hz、4 s、6 s），具体数字 20.1%、19.8% 淹没在细节中</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>结论笼统，<code>Force-matched</code> 术语突兀，没有顺畅地收尾</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+      <h2 id="二结构重组">二、结构重组：</h2>
+        
+      <p>学术摘要的第一句就应该告诉读者：你做了什么，最核心的结论是什么。原稿把”扑-滑结合可降低功率”埋在最后一句，改后将定性结论（<code>can significantly reduce</code>）前置到首句。</p>
+        
+      <p>后续按“平台→控制→验证→调节机制→实验→量化结果→意义”逻辑递进展开。每句话为下一句话搭桥：第二句用 <code>The prototype</code> 回指首句；第三句用 <code>then</code> 顺承验证步骤；第四句先声明调节能力，为实验做铺垫；第五句定量测试，承接上句。</p>
+        
+      <h2 id="三做减法">三、做减法：</h2>
+        
+      <p>以下信息被删去：</p>
+        
+      <ul>
+          <li><strong><code>single-drivetrain</code></strong>：非标准术语，不是本文贡献，读者不关心。</li>
+          <li><strong><code>Aquila-S</code> 项目代号</strong>：摘要空间有限，代号不传递信息，正文再提。</li>
+          <li><strong><code>Static screening identified θ = −10.0°</code></strong>：这个细节不重要且难以理解。摘要不应被旁支分散注意力。</li>
+          <li><strong>具体工况参数</strong>：原稿列了 3 m/s、30°、3 Hz、4 s、6 s。摘要不是实验报告——读者若对条件感兴趣会查正文。最终仅保留”30% 滑翔占比”和”约 20% 节能”两个关键数字。</li>
+          <li><strong>传动反转限制频率</strong>：负面信息，更不需要在摘要体现。</li>
+        </ul>
+        
+      <blockquote>
+          <p><strong>删掉”自己觉得重要”但读者并不关心的细节，是学术写作的第一道门槛。</strong></p>
+        </blockquote>
+        
+      <h2 id="四修改稿">四、修改稿：</h2>
+        
+      <blockquote>
+          <p>This study develops a variable-amplitude flapping-wing prototype and demonstrates that flap-glide operation can significantly reduce mean electrical input power. The prototype employs a Pixhawk–STM32G4 control architecture that implements four flight modes: continuous full-amplitude flapping, low-frequency variable-amplitude flapping, phase-locked gliding, and periodic flap-gliding. A Software-in-the-loop (SITL) co-simulation platform is then established to validate the mode scheduling and phase control accuracy. Variable-amplitude flapping adjusts aerodynamic output and mean electrical power via amplitude and frequency modulation. Wind-wall-based fixed-bench tests quantify aerodynamic forces and electrical power under equivalent mean-force constraints. For the selected operating conditions, a 30% glide fraction reduces mean electrical input power by approximately 20% relative to continuous flapping. These results establish flap-glide scheduling as a promising strategy for power-efficient flapping-wing flight.</p>
+        </blockquote>
+        
+      <p>逐句功能：</p>
+        
+      <div class="table-wrap">
+      <table>
+          <thead>
+            <tr>
+              <th>句</th>
+              <th>功能</th>
+              <th>要点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>核心贡献</td>
+              <td><code>significantly reduce</code> 定性先行，不堆砌数字</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>平台能力</td>
+              <td><code>prototype</code> 回指首句，冒号引出四种模式</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>验证手段</td>
+              <td><code>then</code> 顺承，明确验证对象是模式调度与相位控制</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>调节机制</td>
+              <td>声明变幅扑动能力，为实验做铺垫</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>实验方法</td>
+              <td>风墙台架定量测试</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>关键结果</td>
+              <td>仅留两个核心数字（30%、~20%），其余工况不列</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>意义提升</td>
+              <td>收尾点明扑-滑调度是高效飞行策略</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+      <h2 id="五一些体会和建议">五、一些体会和建议</h2>
+        
+      <ol>
+          <li><strong>摘要不是缩小版的全文。</strong> 它是一份自给自足的贡献声明——读者不用读正文也应该能说出你做了什么、得到了什么。把所有细节塞进去不等于”信息丰富”，等于”没有重点”。</li>
+          <li><strong>做减法的判断力比做加法的勤奋更重要。</strong> 写摘要前的第一件事不是打开正文复制粘贴——而是问自己：如果只能留三个信息点，会是哪三个。非关键信息都删减。</li>
+          <li><strong>句子之间要有逻辑连接。</strong> 写完一段后，一定要自己多读几遍。如果每句话都彼此独立，只是一股脑地把意思说完了而没有关联和逻辑，就需要重写。多用连接词让句子”流动”起来。</li>
+        </ol>
+        
+      <p>做实验、跑仿真、分析数据不是科研的全部，如何展示自己做的工作同样重要。我们要学会从读者的角度来思考。对于一篇摘要，绝大多数读者并不关心实验细节，而只关心三件事：你做了什么、得到了什么、为什么重要。</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><a href="./lab-notes.html">← News</a></p>
+      <p>仿生智慧飞行实验室 — Bio-inspired Intelligent Flight Lab — © 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
