@@ -79,6 +79,10 @@ page = <<~HTML
     <meta property="og:title" content="#{esc.call(title)}">
     <meta property="og:description" content="#{esc.call(desc)}">
     <meta property="og:url" content="https://chensong212.github.io/bio-flight-lab/#{opt[:out]}">
+
+    <meta property="og:image" content="https://chensong212.github.io/bio-flight-lab/img/bird-to-fly.png">
+    <meta property="og:image:width" content="906">
+    <meta property="og:image:height" content="531">
     <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://chensong212.github.io/bio-flight-lab/#{opt[:out]}">
     <link rel="stylesheet" href="./assets/style.css">
